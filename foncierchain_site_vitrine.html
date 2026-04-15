@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoncierChain · Africhain Solutions · MIABE Hackathon 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #f5f5f0; }
+
+    .wrapper { max-width: 760px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+
+    .miabe-banner {
+      background: #1D9E75;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin: 1.2rem 0;
+      letter-spacing: 0.4px;
+    }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; margin-bottom: 1.5rem;
+      border-bottom: 1px solid #e5e5e0;
+    }
+    .nav-logo { font-size: 20px; font-weight: 600; color: #0F6E56; line-height: 1.2; }
+    .nav-sub { font-size: 11px; color: #888; margin-top: 2px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 13px; color: #555; text-decoration: none; }
+    .nav-links a:hover { color: #0F6E56; }
+
+    .hero {
+      background: linear-gradient(135deg, #0F6E56 0%, #1D9E75 60%, #5DCAA5 100%);
+      padding: 64px 40px 56px;
+      text-align: center;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: #E1F5EE;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 { font-size: 40px; font-weight: 600; color: #fff; line-height: 1.15; margin-bottom: 12px; }
+    .hero h1 span { color: #9FE1CB; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 520px; margin: 0 auto 28px; line-height: 1.65; }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: #0F6E56; border: none;
+      padding: 12px 28px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.55);
+      padding: 11px 28px; border-radius: 8px;
+      font-size: 14px; font-weight: 500; cursor: pointer;
+      display: inline-block; text-decoration: none;
+    }
+
+    .stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2rem; }
+    .stat-card {
+      background: #fff; border: 1px solid #e8e8e3; border-radius: 12px;
+      padding: 20px; text-align: center;
+    }
+    .stat-num { font-size: 30px; font-weight: 600; color: #0F6E56; line-height: 1; margin-bottom: 6px; }
+    .stat-lbl { font-size: 12px; color: #777; line-height: 1.45; }
+
+    .section-title { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+    .section-sub { font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.6; }
+
+    .prob-card {
+      background: #FCEBEB; border: 1px solid #F7C1C1;
+      border-radius: 12px; padding: 20px 24px; margin-bottom: 2rem;
+    }
+    .prob-card h3 { font-size: 16px; font-weight: 600; color: #A32D2D; margin-bottom: 10px; }
+    .prob-card p { font-size: 14px; color: #791F1F; line-height: 1.65; }
+
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 2rem; }
+    .how-card { background: #fff; border: 1px solid #e8e8e3; border-radius: 12px; padding: 20px 16px; }
+    .how-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #E1F5EE; color: #0F6E56;
+      font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .how-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .how-card p { font-size: 12px; color: #777; line-height: 1.55; }
+
+    .users-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 2rem; }
+    .user-tag {
+      background: #f5f5f0; border: 1px solid #e8e8e3;
+      border-radius: 8px; padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500;
+    }
+    .user-dot { width: 8px; height: 8px; border-radius: 50%; background: #1D9E75; flex-shrink: 0; }
+
+    .impact-card {
+      background: #E1F5EE; border: 1px solid #9FE1CB;
+      border-radius: 12px; padding: 24px; margin-bottom: 2rem;
+    }
+    .impact-card h3 { font-size: 16px; font-weight: 600; color: #085041; margin-bottom: 14px; }
+    .impact-list { display: flex; flex-direction: column; gap: 8px; }
+    .impact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #0F6E56; line-height: 1.5; }
+    .impact-check {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #0F6E56; color: #fff; font-size: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    .sdg-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem; }
+    .sdg-badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .sdg1 { background: #FAECE7; color: #993C1D; }
+    .sdg11 { background: #E6F1FB; color: #185FA5; }
+    .sdg16 { background: #EAF3DE; color: #3B6D11; }
+
+    .cta-box {
+      background: linear-gradient(135deg, #0F6E56, #1D9E75);
+      border-radius: 14px; padding: 40px 24px;
+      text-align: center; color: #fff;
+      margin-bottom: 2rem;
+    }
+    .cta-box h3 { font-size: 22px; font-weight: 600; margin-bottom: 10px; }
+    .cta-box p { font-size: 14px; color: rgba(255,255,255,0.78); margin-bottom: 22px; line-height: 1.6; }
+
+    footer {
+      border-top: 1px solid #e5e5e0;
+      padding: 20px 0 8px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .footer-txt { font-size: 12px; color: #888; }
+    .footer-link { font-size: 12px; color: #1D9E75; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stats-bar, .how-grid { grid-template-columns: 1fr; }
+      .users-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 28px; }
+      .hero { padding: 40px 20px 36px; }
+      nav { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="miabe-banner">
+      MIABE HACKATHON 2026 · Edition Congo · Projet CG-01 · D12 Immobilier & Cadastre foncier
+    </div>
+
+    <nav>
+      <div>
+        <div class="nav-logo">FoncierChain</div>
+        <div class="nav-sub">par Africhain Solutions · Congo Brazzaville</div>
+      </div>
+      <div class="nav-links">
+        <a href="#probleme">Problème</a>
+        <a href="#solution">Solution</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact">Vérifier un terrain</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-tag">Africhain Solutions · FoncierChain</div>
+      <h1>Le registre foncier <span>immuable</span> du Congo</h1>
+      <p>FoncierChain met fin à la double attribution de terrains grâce à la blockchain. Chaque parcelle, un seul propriétaire. Vérifiable par tout citoyen, en temps réel.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-white">Vérifier un terrain</a>
+        <a href="#solution" class="btn-outline">Comment ça marche</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-num">60 %</div>
+        <div class="stat-lbl">des terrains urbains à Brazzaville en litige</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">45 %</div>
+        <div class="stat-lbl">des affaires civiles congolaises sont foncières</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3–7 ans</div>
+        <div class="stat-lbl">pour résoudre un litige foncier au Congo</div>
+      </div>
+    </div>
+
+    <div id="probleme">
+      <div class="prob-card">
+        <h3>Le problème : un terrain, cinq propriétaires</h3>
+        <p>Au Congo, le registre foncier papier est opaque et manipulable. Des agents corrompus vendent la même parcelle 3 à 5 fois à des acheteurs différents. Le coût moyen d'un litige pour un ménage : 500 000 à 3 000 000 FCFA.</p>
+      </div>
+    </div>
+
+    <div id="solution">
+      <div class="section-title">Comment FoncierChain résout ça</div>
+      <p class="section-sub">Trois étapes simples, rendues techniquement inviolables par la blockchain.</p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-num">1</div>
+          <h4>Enregistrement unique</h4>
+          <p>Chaque parcelle est inscrite une seule fois. Le smart contract rejette automatiquement toute tentative de double enregistrement.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">2</div>
+          <h4>Transfert sécurisé</h4>
+          <p>Tout transfert de propriété exige la signature cryptographique du propriétaire actuel. Impossible de contourner.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-num">3</div>
+          <h4>Vérification publique</h4>
+          <p>N'importe quel citoyen peut vérifier instantanément le propriétaire légal et l'historique complet d'une parcelle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Pour qui ?</div>
+    <p class="section-sub">FoncierChain s'adresse à tous les acteurs du foncier congolais.</p>
+    <div class="users-grid">
+      <div class="user-tag"><div class="user-dot"></div>Propriétaires fonciers (Brazzaville & Pointe-Noire)</div>
+      <div class="user-tag"><div class="user-dot"></div>Agents fonciers et notaires</div>
+      <div class="user-tag"><div class="user-dot"></div>Tribunaux civils</div>
+      <div class="user-tag"><div class="user-dot"></div>Banques (crédit & garanties)</div>
+      <div class="user-tag"><div class="user-dot"></div>Ministère des Affaires Foncières</div>
+      <div class="user-tag"><div class="user-dot"></div>Citoyens souhaitant vérifier</div>
+    </div>
+
+    <div id="impact" class="impact-card">
+      <h3>Impact attendu</h3>
+      <div class="impact-list">
+        <div class="impact-item"><div class="impact-check">✓</div>La double attribution devient techniquement impossible</div>
+        <div class="impact-item"><div class="impact-check">✓</div>Les litiges fonciers disparaissent progressivement</div>
+        <div class="impact-item"><div class="impact-check">✓</div>Les ménages peuvent utiliser leur terrain comme garantie de crédit</div>
+        <div class="impact-item"><div class="impact-check">✓</div>La confiance dans le système foncier se restaure</div>
+        <div class="impact-item"><div class="impact-check">✓</div>Historique complet et immuable de tous les propriétaires successifs</div>
+      </div>
+    </div>
+
+    <div class="section-title">Objectifs de développement durable</div>
+    <p class="section-sub">FoncierChain contribue directement à trois ODD de l'agenda 2030.</p>
+    <div class="sdg-row">
+      <div class="sdg-badge sdg1">ODD 1 — Fin de la pauvreté</div>
+      <div class="sdg-badge sdg11">ODD 11 — Villes durables</div>
+      <div class="sdg-badge sdg16">ODD 16 — Institutions efficaces</div>
+    </div>
+
+    <div id="contact" class="cta-box">
+      <h3>Prêt à vérifier votre terrain ?</h3>
+      <p>FoncierChain par Africhain Solutions est en phase de déploiement à Brazzaville.<br>Rejoignez la liste des premiers utilisateurs.</p>
+      <a href="https://www.miabehackathon.com" target="_blank" class="btn-white">Demander la démo</a>
+    </div>
+
+    <footer>
+      <div class="footer-txt">FoncierChain · Africhain Solutions · MIABE Hackathon 2026 · Projet CG-01</div>
+      <a class="footer-link" href="https://www.miabehackathon.com" target="_blank">miabehackathon.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>
